@@ -23,7 +23,7 @@ public class Employee extends Person {
     private String layoffs;
     private String pension;
 
-    public Employee(String position, Date dateOfEntry, Date dateOfDeparture, String contractType, String aRL, String ePS, String layoffs, String pension, String givenName, String familyName, int idNumber, Date birthDate, String address, String eMail, String sex, int childrensNumber, String civilState, String profession, String educationLevel) {
+    public Employee(String givenName, String familyName, int idNumber, Date birthDate, String address, String eMail, String sex, int childrensNumber, String civilState, String profession, String educationLevel, String position, Date dateOfEntry, Date dateOfDeparture, String contractType, String aRL, String ePS, String layoffs, String pension) {
         super(givenName, familyName, idNumber, birthDate, address, eMail, sex, childrensNumber, civilState, profession, educationLevel);
         this.position = position;
         this.dateOfEntry = dateOfEntry;
