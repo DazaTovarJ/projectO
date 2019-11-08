@@ -6,8 +6,8 @@
 package main;
 
 import employee.Employee;
-import java.util.Calendar;
-import java.util.Date;
+//import java.util.Calendar;
+//import java.util.Date;
 
 /**
  *
@@ -20,13 +20,7 @@ public class ProjectO {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Calendar cal = Calendar.getInstance();
-        Date birth = cal.getTime();
-        Date entry = cal.getTime();
-        Date departure = cal.getTime();
         
-        e = new Employee("Jaime David", "Daza Tovar", 1193456411, birth, "Calle 66A 9C-27", "jdaza17@cucedu.co", "Masculino", 0, "Soltero", "Estudiante", "Bachillerato", "Estudiante de pregrado", entry, departure, "fijo", "Seguros del Estado", "Coomeva", "Ninguna", "Ninguna");
-        System.out.println("Persona "+e.getDateOfEntry());
     }
     
 }

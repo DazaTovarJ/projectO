@@ -15,15 +15,15 @@ import person.Person;
 public class Employee extends Person {
     
     private String position;
-    private Date dateOfEntry;
-    private Date dateOfDeparture;
+    private String dateOfEntry;
+    private String dateOfDeparture;
     private String contractType;
     private String aRL;
     private String ePS;
     private String layoffs;
     private String pension;
 
-    public Employee(String givenName, String familyName, int idNumber, Date birthDate, String address, String eMail, String sex, int childrensNumber, String civilState, String profession, String educationLevel, String position, Date dateOfEntry, Date dateOfDeparture, String contractType, String aRL, String ePS, String layoffs, String pension) {
+    public Employee(String givenName, String familyName, int idNumber, String birthDate, String address, String eMail, String sex, int childrensNumber, String civilState, String profession, String educationLevel, String position, String dateOfEntry, String dateOfDeparture, String contractType, String aRL, String ePS, String layoffs, String pension) {
         super(givenName, familyName, idNumber, birthDate, address, eMail, sex, childrensNumber, civilState, profession, educationLevel);
         this.position = position;
         this.dateOfEntry = dateOfEntry;
@@ -43,19 +43,19 @@ public class Employee extends Person {
         this.position = position;
     }
 
-    public Date getDateOfEntry() {
+    public String getDateOfEntry() {
         return dateOfEntry;
     }
 
-    public void setDateOfEntry(Date dateOfEntry) {
+    public void setDateOfEntry(String dateOfEntry) {
         this.dateOfEntry = dateOfEntry;
     }
 
-    public Date getDateOfDeparture() {
+    public String getDateOfDeparture() {
         return dateOfDeparture;
     }
 
-    public void setDateOfDeparture(Date dateOfDeparture) {
+    public void setDateOfDeparture(String dateOfDeparture) {
         this.dateOfDeparture = dateOfDeparture;
     }
 

@@ -5,7 +5,7 @@
  */
 package person;
 
-import java.util.Date;
+//import java.util.Date;
 
 /**
  *
@@ -15,7 +15,7 @@ public class Person {
     private String givenName;
     private String familyName;
     private int idNumber;
-    private Date birthDate;
+    private String birthDate;
     private String address;
     private String eMail;
     private String sex;
@@ -24,7 +24,7 @@ public class Person {
     private String profession;
     private String educationLevel;
 
-    public Person(String givenName, String familyName, int idNumber, Date birthDate, String address, String eMail, String sex, int childrensNumber, String civilState, String profession, String educationLevel) {
+    public Person(String givenName, String familyName, int idNumber, String birthDate, String address, String eMail, String sex, int childrensNumber, String civilState, String profession, String educationLevel) {
         this.givenName = givenName;
         this.familyName = familyName;
         this.idNumber = idNumber;
@@ -37,6 +37,8 @@ public class Person {
         this.profession = profession;
         this.educationLevel = educationLevel;
     }
+
+    
 
     public String getGivenName() {
         return givenName;
@@ -62,11 +64,11 @@ public class Person {
         this.idNumber = idNumber;
     }
 
-    public Date getBirthDate() {
+    public String getBirthDate() {
         return birthDate;
     }
 
-    public void setBirthDate(Date birthDate) {
+    public void setBirthDate(String birthDate) {
         this.birthDate = birthDate;
     }
 
