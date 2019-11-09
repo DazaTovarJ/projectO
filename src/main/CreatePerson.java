@@ -6,6 +6,7 @@
 package main;
 
 import employee.Employee;
+import java.util.Date;
 
 /**
  *
@@ -52,7 +53,18 @@ public class CreatePerson extends javax.swing.JFrame {
         professionTxt = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
         eduLevelTxt = new javax.swing.JTextField();
-        birthDateTxt = new javax.swing.JFormattedTextField();
+        birthDateTxt = new com.toedter.calendar.JDateChooser();
+        jLabel25 = new javax.swing.JLabel();
+        jLabel26 = new javax.swing.JLabel();
+        jLabel27 = new javax.swing.JLabel();
+        jLabel28 = new javax.swing.JLabel();
+        jLabel29 = new javax.swing.JLabel();
+        jLabel30 = new javax.swing.JLabel();
+        jLabel31 = new javax.swing.JLabel();
+        jLabel32 = new javax.swing.JLabel();
+        jLabel33 = new javax.swing.JLabel();
+        jLabel34 = new javax.swing.JLabel();
+        jLabel35 = new javax.swing.JLabel();
         laborDataPane = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
@@ -69,11 +81,21 @@ public class CreatePerson extends javax.swing.JFrame {
         layoffsTxt = new javax.swing.JTextField();
         jLabel21 = new javax.swing.JLabel();
         pensionTxt = new javax.swing.JTextField();
-        dateOfEntryTxt = new javax.swing.JFormattedTextField();
-        dateOfExitTxt = new javax.swing.JFormattedTextField();
+        dateOfEntryTxt = new com.toedter.calendar.JDateChooser();
+        dateOfExitTxt = new com.toedter.calendar.JDateChooser();
+        jLabel36 = new javax.swing.JLabel();
+        jLabel37 = new javax.swing.JLabel();
+        dODReqLbl = new javax.swing.JLabel();
+        jLabel38 = new javax.swing.JLabel();
+        jLabel39 = new javax.swing.JLabel();
+        jLabel40 = new javax.swing.JLabel();
+        layoffsReqLbl = new javax.swing.JLabel();
+        jLabel41 = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
         saveBtn = new javax.swing.JButton();
         cancelBtn = new javax.swing.JButton();
+        jLabel23 = new javax.swing.JLabel();
+        jLabel24 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -114,7 +136,38 @@ public class CreatePerson extends javax.swing.JFrame {
 
         jLabel12.setText("Nivel educativo");
 
-        birthDateTxt.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("d/MM/yyyy"))));
+        jLabel25.setForeground(java.awt.Color.red);
+        jLabel25.setText("*");
+
+        jLabel26.setForeground(java.awt.Color.red);
+        jLabel26.setText("*");
+
+        jLabel27.setForeground(java.awt.Color.red);
+        jLabel27.setText("*");
+
+        jLabel28.setForeground(java.awt.Color.red);
+        jLabel28.setText("*");
+
+        jLabel29.setForeground(java.awt.Color.red);
+        jLabel29.setText("*");
+
+        jLabel30.setForeground(java.awt.Color.red);
+        jLabel30.setText("*");
+
+        jLabel31.setForeground(java.awt.Color.red);
+        jLabel31.setText("*");
+
+        jLabel32.setForeground(java.awt.Color.red);
+        jLabel32.setText("*");
+
+        jLabel33.setForeground(java.awt.Color.red);
+        jLabel33.setText("*");
+
+        jLabel34.setForeground(java.awt.Color.red);
+        jLabel34.setText("*");
+
+        jLabel35.setForeground(java.awt.Color.red);
+        jLabel35.setText("*");
 
         javax.swing.GroupLayout personalDataPanLayout = new javax.swing.GroupLayout(personalDataPan);
         personalDataPan.setLayout(personalDataPanLayout);
@@ -129,36 +182,68 @@ public class CreatePerson extends javax.swing.JFrame {
                     .addComponent(professionTxt)
                     .addGroup(personalDataPanLayout.createSequentialGroup()
                         .addGroup(personalDataPanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel11)
-                            .addComponent(jLabel12)
+                            .addGroup(personalDataPanLayout.createSequentialGroup()
+                                .addComponent(jLabel11)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel34))
+                            .addGroup(personalDataPanLayout.createSequentialGroup()
+                                .addComponent(jLabel12)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel35, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jLabel1)
                             .addGroup(personalDataPanLayout.createSequentialGroup()
                                 .addGroup(personalDataPanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(personalDataPanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                         .addComponent(idTxt, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 203, Short.MAX_VALUE)
                                         .addComponent(givenNameTxt, javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING))
-                                    .addComponent(jLabel4)
-                                    .addComponent(jLabel6))
+                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, personalDataPanLayout.createSequentialGroup()
+                                            .addComponent(jLabel2)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(jLabel25)))
+                                    .addGroup(personalDataPanLayout.createSequentialGroup()
+                                        .addComponent(jLabel4)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jLabel27, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(personalDataPanLayout.createSequentialGroup()
+                                        .addComponent(jLabel6)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jLabel29, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGap(18, 18, 18)
                                 .addGroup(personalDataPanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jLabel5)
-                                    .addComponent(jLabel3)
-                                    .addComponent(familyNameTxt)
-                                    .addComponent(birthDateTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)))
-                            .addComponent(jLabel7)
+                                    .addGroup(personalDataPanLayout.createSequentialGroup()
+                                        .addComponent(jLabel3)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jLabel26, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(familyNameTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)
+                                    .addGroup(personalDataPanLayout.createSequentialGroup()
+                                        .addComponent(jLabel5)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jLabel28, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(birthDateTxt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addGroup(personalDataPanLayout.createSequentialGroup()
+                                .addComponent(jLabel7)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel30, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(personalDataPanLayout.createSequentialGroup()
                                 .addGroup(personalDataPanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel8)
+                                    .addGroup(personalDataPanLayout.createSequentialGroup()
+                                        .addComponent(jLabel8)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jLabel31, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addComponent(sexCmb, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(18, 18, 18)
                                 .addGroup(personalDataPanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel10)
-                                    .addComponent(civilStateCmb, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(18, 18, 18)
+                                    .addComponent(civilStateCmb, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(personalDataPanLayout.createSequentialGroup()
+                                        .addComponent(jLabel10)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jLabel32)))
+                                .addGap(34, 34, 34)
                                 .addGroup(personalDataPanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(childrenNumberSpn, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addComponent(childrenNumberSpn, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel33, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -168,51 +253,70 @@ public class CreatePerson extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel1)
                 .addGap(17, 17, 17)
-                .addGroup(personalDataPanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(personalDataPanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(givenNameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(familyNameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(personalDataPanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel5))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(personalDataPanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(idTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(personalDataPanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(personalDataPanLayout.createSequentialGroup()
+                        .addGroup(personalDataPanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel25)
+                            .addComponent(jLabel26))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(personalDataPanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(givenNameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(familyNameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(personalDataPanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel27)
+                            .addComponent(jLabel28))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(idTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(birthDateTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel6)
+                .addGroup(personalDataPanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(jLabel29))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(addressTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(personalDataPanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(personalDataPanLayout.createSequentialGroup()
-                        .addComponent(jLabel7)
+                        .addGroup(personalDataPanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel7)
+                            .addComponent(jLabel30))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(eMailTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(personalDataPanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(personalDataPanLayout.createSequentialGroup()
-                                .addComponent(jLabel8)
+                                .addGroup(personalDataPanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel8)
+                                    .addComponent(jLabel31))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(sexCmb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(personalDataPanLayout.createSequentialGroup()
-                                .addComponent(jLabel10)
+                                .addGroup(personalDataPanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel10)
+                                    .addComponent(jLabel32))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(civilStateCmb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(personalDataPanLayout.createSequentialGroup()
-                        .addComponent(jLabel9)
+                        .addGroup(personalDataPanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel9)
+                            .addComponent(jLabel33))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(childrenNumberSpn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel11)
+                .addGroup(personalDataPanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel11)
+                    .addComponent(jLabel34))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(professionTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel12)
+                .addGroup(personalDataPanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel12)
+                    .addComponent(jLabel35))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(eduLevelTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -231,6 +335,11 @@ public class CreatePerson extends javax.swing.JFrame {
         jLabel17.setText("Tipo de contrato");
 
         contractTypeCmb.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Indefinido", "Término Fijo", "Prestación de servicio" }));
+        contractTypeCmb.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                contractTypeCmbActionPerformed(evt);
+            }
+        });
 
         jLabel18.setText("EPS");
 
@@ -240,9 +349,28 @@ public class CreatePerson extends javax.swing.JFrame {
 
         jLabel21.setText("Pensión");
 
-        dateOfEntryTxt.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("d/MM/yyyy"))));
+        jLabel36.setForeground(java.awt.Color.red);
+        jLabel36.setText("*");
 
-        dateOfExitTxt.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("d/MM/yyyy"))));
+        jLabel37.setForeground(java.awt.Color.red);
+        jLabel37.setText("*");
+
+        dODReqLbl.setForeground(java.awt.Color.red);
+
+        jLabel38.setForeground(java.awt.Color.red);
+        jLabel38.setText("*");
+
+        jLabel39.setForeground(java.awt.Color.red);
+        jLabel39.setText("*");
+
+        jLabel40.setForeground(java.awt.Color.red);
+        jLabel40.setText("*");
+
+        layoffsReqLbl.setForeground(java.awt.Color.red);
+        layoffsReqLbl.setText("*");
+
+        jLabel41.setForeground(java.awt.Color.red);
+        jLabel41.setText("*");
 
         javax.swing.GroupLayout laborDataPaneLayout = new javax.swing.GroupLayout(laborDataPane);
         laborDataPane.setLayout(laborDataPaneLayout);
@@ -253,32 +381,56 @@ public class CreatePerson extends javax.swing.JFrame {
                 .addGroup(laborDataPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(ocupationTxt)
                     .addComponent(contractTypeCmb, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(dateOfEntryTxt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(laborDataPaneLayout.createSequentialGroup()
                         .addGroup(laborDataPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel13)
-                            .addComponent(jLabel14)
-                            .addComponent(jLabel15)
-                            .addComponent(jLabel16)
-                            .addComponent(jLabel17)
+                            .addGroup(laborDataPaneLayout.createSequentialGroup()
+                                .addComponent(jLabel14)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel36, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(laborDataPaneLayout.createSequentialGroup()
+                                .addComponent(jLabel15)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel37, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(laborDataPaneLayout.createSequentialGroup()
+                                .addComponent(jLabel16)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(dODReqLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(laborDataPaneLayout.createSequentialGroup()
+                                .addComponent(jLabel17)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel38, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(laborDataPaneLayout.createSequentialGroup()
                                 .addGroup(laborDataPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(ePSTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel18))
+                                    .addGroup(laborDataPaneLayout.createSequentialGroup()
+                                        .addComponent(jLabel18)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jLabel39, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGap(18, 18, 18)
                                 .addGroup(laborDataPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel19)
+                                    .addGroup(laborDataPaneLayout.createSequentialGroup()
+                                        .addComponent(jLabel19)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jLabel40, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addComponent(aRLTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(laborDataPaneLayout.createSequentialGroup()
                                 .addGroup(laborDataPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel20)
+                                    .addGroup(laborDataPaneLayout.createSequentialGroup()
+                                        .addComponent(jLabel20)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(layoffsReqLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addComponent(layoffsTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(18, 18, 18)
                                 .addGroup(laborDataPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel21)
+                                    .addGroup(laborDataPaneLayout.createSequentialGroup()
+                                        .addComponent(jLabel21)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jLabel41, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addComponent(pensionTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGap(0, 27, Short.MAX_VALUE))
-                    .addComponent(dateOfEntryTxt)
-                    .addComponent(dateOfExitTxt))
+                    .addComponent(dateOfExitTxt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         laborDataPaneLayout.setVerticalGroup(
@@ -287,37 +439,51 @@ public class CreatePerson extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel13)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel14)
+                .addGroup(laborDataPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel14)
+                    .addComponent(jLabel36))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(ocupationTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel15)
+                .addGroup(laborDataPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel15)
+                    .addComponent(jLabel37))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(dateOfEntryTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel16)
+                .addGroup(laborDataPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel16)
+                    .addComponent(dODReqLbl))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(dateOfExitTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(laborDataPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(laborDataPaneLayout.createSequentialGroup()
-                        .addComponent(jLabel17)
+                        .addGroup(laborDataPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel17)
+                            .addComponent(jLabel38))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(contractTypeCmb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(laborDataPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel18)
-                            .addComponent(jLabel19))
+                            .addComponent(jLabel19)
+                            .addComponent(jLabel39)
+                            .addComponent(jLabel40))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(laborDataPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(ePSTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(aRLTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel20)
+                        .addGroup(laborDataPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel20)
+                            .addComponent(layoffsReqLbl))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(layoffsTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(laborDataPaneLayout.createSequentialGroup()
-                        .addComponent(jLabel21)
+                        .addGroup(laborDataPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel21)
+                            .addComponent(jLabel41))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(pensionTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(56, Short.MAX_VALUE))
@@ -342,6 +508,11 @@ public class CreatePerson extends javax.swing.JFrame {
             }
         });
 
+        jLabel23.setForeground(java.awt.Color.red);
+        jLabel23.setText("*");
+
+        jLabel24.setText("Campo requerido");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -350,30 +521,43 @@ public class CreatePerson extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(personalDataPan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(laborDataPane, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel22)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(cancelBtn)
                         .addGap(18, 18, 18)
-                        .addComponent(saveBtn)))
+                        .addComponent(saveBtn))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel23)
+                            .addComponent(personalDataPan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(laborDataPane, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel24)
+                                .addGap(0, 0, Short.MAX_VALUE)))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel22)
-                        .addComponent(saveBtn))
-                    .addComponent(cancelBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(personalDataPan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(laborDataPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabel22)
+                                .addComponent(saveBtn))
+                            .addComponent(cancelBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(laborDataPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(56, 56, 56)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel23)
+                            .addComponent(jLabel24))
+                        .addGap(18, 18, 18)
+                        .addComponent(personalDataPan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGap(48, 48, 48))
         );
 
@@ -388,7 +572,7 @@ public class CreatePerson extends javax.swing.JFrame {
         String givenName = givenNameTxt.getText();
         String familyName = familyNameTxt.getText();
         int id = Integer.parseInt(idTxt.getText());
-        String birthDate = birthDateTxt.getText();
+        Date birthDate = birthDateTxt.getDate();
         String address = addressTxt.getText();
         String eMail = eMailTxt.getText();
         String sex = sexCmb.getSelectedItem().toString();
@@ -397,22 +581,51 @@ public class CreatePerson extends javax.swing.JFrame {
         String eduLevel = eduLevelTxt.getText();
         String profession = professionTxt.getText();
         String ocupation = ocupationTxt.getText();
-        String dEnt = dateOfEntryTxt.getText();
-        String dExit = dateOfExitTxt.getText();
+        Date dEnt = dateOfEntryTxt.getDate();
+        Date dExit = dateOfExitTxt.getDate();
         String contract = contractTypeCmb.getSelectedItem().toString();
         String ePS = ePSTxt.getText();
         String aRL = aRLTxt.getText();
         String layoffs = layoffsTxt.getText();
         String pension = pensionTxt.getText();
         
-        Employee e = new Employee(givenName, familyName, id, birthDate, address, eMail, sex, childrenNumber, civilState, profession, eduLevel, pension, dEnt, ocupation, contract, aRL, ePS, layoffs, pension);
+        //Depending on the contract type, the date of departure will be required or not required
+        if(contract.equals("Indefinido")) {
+            checkNewEmployee(aRL, familyName, id, birthDate, address, eMail, sex, childrenNumber, civilState, profession, eduLevel, pension, dEnt, aRL, ePS, layoffs, pension);
+        } else if(contract.equals("Término fijo")) {
+            checkNewEmployee(aRL, familyName, id, birthDate, address, eMail, sex, childrenNumber, civilState, profession, eduLevel, pension, dEnt, dExit, aRL, ePS, layoffs, pension);
+        } else if(contract.equals("Prestación de servicios")) {
+            checkNewEmployee(aRL, familyName, id, birthDate, address, eMail, sex, childrenNumber, civilState, profession, eduLevel, pension, dEnt, dEnt, aRL, ePS, pension);
+        }
+        
+        Employee e = new Employee(givenName, familyName, id, birthDate, address, eMail, sex, childrenNumber, civilState, profession, eduLevel, ocupation, dEnt, dExit, contract, aRL, ePS, layoffs, pension);
         
         System.out.println("Persona creada: "+e.getGivenName()+" "+e.getFamilyName());
+        System.out.println("Fecha de nacimiento: "+e.getBirthDate());
+        System.out.println("Fecha de ingreso: "+e.getDateOfEntry());
+        System.out.println("Fecha de salida: "+e.getDateOfDeparture());
     }//GEN-LAST:event_saveBtnActionPerformed
 
     private void cancelBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelBtnActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cancelBtnActionPerformed
+
+    private void contractTypeCmbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contractTypeCmbActionPerformed
+        // TODO add your handling code here:
+        String contract = contractTypeCmb.getSelectedItem().toString();
+        System.out.println(contract);
+        if(contract.equals("Indefinido")) {
+            dODReqLbl.setText("");
+        }
+        if(contract.equals("Término Fijo") || contract.equals("Prestación de servicio")) {
+            dODReqLbl.setText("*");
+        }
+        if(contract.equals("Prestación de servicio")) {
+            layoffsReqLbl.setText("");
+        } else {
+            layoffsReqLbl.setText("*");
+        }
+    }//GEN-LAST:event_contractTypeCmbActionPerformed
 
     /**
      * @param args the command line arguments
@@ -449,17 +662,91 @@ public class CreatePerson extends javax.swing.JFrame {
             }
         });
     }
+    
+    /**
+     * Checks if the form is complete, when contract type is fixed term
+     * @param name the name of the employee
+     * @param familyName the family name of the employee
+     * @param id the national id card of the employee
+     * @param birthDate the birth date of the employe
+     * @param address the employee's home addres
+     * @param eMail the employee's email addres
+     * @param sex the sex of the employee
+     * @param childrenNumber the employee's number of children
+     * @param civilState the civil state of the employee
+     * @param profession the profession of the employee
+     * @param eduLevel the education level of the employee
+     * @param position the position of the employee in this company
+     * @param dOE the date of entry in this company
+     * @param dOD the date of departure of this company
+     * @param aRL the Occupational Risk Manager (ARL by its Spanish acronym) to which the employee is affiliated
+     * @param ePS the Health Promoter Entity (EPS by its Spanish acronym) to which the employee is affiliated
+     * @param layoffs the layoffs fund to which the employee is affiliated
+     * @param pension the pension fund administrator to which the employee is affiliated
+     */
+    public void checkNewEmployee(String name, String familyName, int id, Date birthDate, String address, String eMail, String sex, int childrenNumber, String civilState, String profession, String eduLevel, String position, Date dOE, Date dOD, String aRL, String ePS, String layoffs, String pension) {
+        
+    }
+    
+    /**
+     * Checks if the form is complete, when contract type IS infinite
+     * @param name the name of the employee
+     * @param familyName the family name of the employee
+     * @param id the national id card of the employee
+     * @param birthDate the birth date of the employe
+     * @param address the employee's home addres
+     * @param eMail the employee's email addres
+     * @param sex the sex of the employee
+     * @param childrenNumber the employee's number of children
+     * @param civilState the civil state of the employee
+     * @param profession the profession of the employee
+     * @param eduLevel the education level of the employee
+     * @param position the position of the employee in this company
+     * @param dOE the date of entry in this company
+     * @param aRL the Occupational Risk Manager (ARL by its Spanish acronym) to which the employee is affiliated
+     * @param ePS the Health Promoter Entity (EPS by its Spanish acronym) to which the employee is affiliated
+     * @param layoffs the layoffs fund to which the employee is affiliated
+     * @param pension the pension fund administrator to which the employee is affiliated
+     */
+    public void checkNewEmployee(String name, String familyName, int id, Date birthDate, String address, String eMail, String sex, int childrenNumber, String civilState, String profession, String eduLevel, String position, Date dOE, String aRL, String ePS, String layoffs, String pension) {
+        
+    }
+    
+    /**
+     * Checks if the form is complete, when contract type is Contract of service
+     * @param name the name of the employee
+     * @param familyName the family name of the employee
+     * @param id the national id card of the employee
+     * @param birthDate the birth date of the employe
+     * @param address the employee's home addres
+     * @param eMail the employee's email addres
+     * @param sex the sex of the employee
+     * @param childrenNumber the employee's number of children
+     * @param civilState the civil state of the employee
+     * @param profession the profession of the employee
+     * @param eduLevel the education level of the employee
+     * @param position the position of the employee in this company
+     * @param dOE the date of entry in this company
+     * @param dOD the date of departure of this company
+     * @param aRL the Occupational Risk Manager (ARL by its Spanish acronym) to which the employee is affiliated
+     * @param ePS the Health Promoter Entity (EPS by its Spanish acronym) to which the employee is affiliated
+     * @param pension the pension fund administrator to which the employee is affiliated
+     */
+    public void checkNewEmployee(String name, String familyName, int id, Date birthDate, String address, String eMail, String sex, int childrenNumber, String civilState, String profession, String eduLevel, String position, Date dOE, Date dOD, String aRL, String ePS, String pension) {
+        
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField aRLTxt;
     private javax.swing.JTextField addressTxt;
-    private javax.swing.JFormattedTextField birthDateTxt;
+    private com.toedter.calendar.JDateChooser birthDateTxt;
     private javax.swing.JButton cancelBtn;
     private javax.swing.JSpinner childrenNumberSpn;
     private javax.swing.JComboBox<String> civilStateCmb;
     private javax.swing.JComboBox<String> contractTypeCmb;
-    private javax.swing.JFormattedTextField dateOfEntryTxt;
-    private javax.swing.JFormattedTextField dateOfExitTxt;
+    private javax.swing.JLabel dODReqLbl;
+    private com.toedter.calendar.JDateChooser dateOfEntryTxt;
+    private com.toedter.calendar.JDateChooser dateOfExitTxt;
     private javax.swing.JTextField eMailTxt;
     private javax.swing.JTextField ePSTxt;
     private javax.swing.JTextField eduLevelTxt;
@@ -481,14 +768,34 @@ public class CreatePerson extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel31;
+    private javax.swing.JLabel jLabel32;
+    private javax.swing.JLabel jLabel33;
+    private javax.swing.JLabel jLabel34;
+    private javax.swing.JLabel jLabel35;
+    private javax.swing.JLabel jLabel36;
+    private javax.swing.JLabel jLabel37;
+    private javax.swing.JLabel jLabel38;
+    private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel40;
+    private javax.swing.JLabel jLabel41;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel laborDataPane;
+    private javax.swing.JLabel layoffsReqLbl;
     private javax.swing.JTextField layoffsTxt;
     private javax.swing.JTextField ocupationTxt;
     private javax.swing.JTextField pensionTxt;
