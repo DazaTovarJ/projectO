@@ -7,12 +7,20 @@ package main;
 
 import employee.Employee;
 import java.util.Date;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author JDaza
  */
 public class CreatePerson extends javax.swing.JFrame {
+
+    private static final long serialVersionUID = 1L;
+    
+    private Pattern eMailRegEx = Pattern.compile("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
+                        + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
 
     /**
      * Creates new form CreatePerson
@@ -65,10 +73,11 @@ public class CreatePerson extends javax.swing.JFrame {
         jLabel33 = new javax.swing.JLabel();
         jLabel34 = new javax.swing.JLabel();
         jLabel35 = new javax.swing.JLabel();
+        eMailPatternMsgLbl = new javax.swing.JLabel();
         laborDataPane = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
-        ocupationTxt = new javax.swing.JTextField();
+        occupationTxt = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
@@ -98,76 +107,127 @@ public class CreatePerson extends javax.swing.JFrame {
         jLabel24 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Creación de nuevo empleado");
 
         personalDataPan.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
+        jLabel1.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         jLabel1.setText("Datos personales");
 
+        jLabel2.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         jLabel2.setText("Nombre:");
 
+        givenNameTxt.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+
+        jLabel3.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         jLabel3.setText("Apellido");
 
+        familyNameTxt.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+
+        jLabel4.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         jLabel4.setText("Identificación");
 
+        idTxt.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+
+        jLabel5.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         jLabel5.setText("Fecha de nacimiento");
 
+        jLabel6.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         jLabel6.setText("Dirección");
 
+        addressTxt.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+
+        jLabel7.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         jLabel7.setText("E-mail");
 
+        eMailTxt.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        eMailTxt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                eMailTxtActionPerformed(evt);
+            }
+        });
+
+        jLabel8.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         jLabel8.setText("Sexo");
 
-        sexCmb.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Masculino", "Femenino" }));
+        sexCmb.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        sexCmb.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "---", "Masculino", "Femenino" }));
 
+        jLabel9.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         jLabel9.setText("Número de hijos");
 
+        childrenNumberSpn.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         childrenNumberSpn.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
 
+        jLabel10.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         jLabel10.setText("Estado civil");
 
-        civilStateCmb.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Casado", "Soltero", "Viudo", "Divorciado" }));
+        civilStateCmb.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        civilStateCmb.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "---", "Casado", "Soltero", "Viudo", "Divorciado" }));
         civilStateCmb.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 civilStateCmbActionPerformed(evt);
             }
         });
 
+        jLabel11.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         jLabel11.setText("Profesión");
 
+        professionTxt.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+
+        jLabel12.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         jLabel12.setText("Nivel educativo");
 
+        eduLevelTxt.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+
+        birthDateTxt.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+
+        jLabel25.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         jLabel25.setForeground(java.awt.Color.red);
         jLabel25.setText("*");
 
+        jLabel26.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         jLabel26.setForeground(java.awt.Color.red);
         jLabel26.setText("*");
 
+        jLabel27.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         jLabel27.setForeground(java.awt.Color.red);
         jLabel27.setText("*");
 
+        jLabel28.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         jLabel28.setForeground(java.awt.Color.red);
         jLabel28.setText("*");
 
+        jLabel29.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         jLabel29.setForeground(java.awt.Color.red);
         jLabel29.setText("*");
 
+        jLabel30.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         jLabel30.setForeground(java.awt.Color.red);
         jLabel30.setText("*");
 
+        jLabel31.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         jLabel31.setForeground(java.awt.Color.red);
         jLabel31.setText("*");
 
+        jLabel32.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         jLabel32.setForeground(java.awt.Color.red);
         jLabel32.setText("*");
 
+        jLabel33.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         jLabel33.setForeground(java.awt.Color.red);
         jLabel33.setText("*");
 
+        jLabel34.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         jLabel34.setForeground(java.awt.Color.red);
         jLabel34.setText("*");
 
+        jLabel35.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         jLabel35.setForeground(java.awt.Color.red);
         jLabel35.setText("*");
+
+        eMailPatternMsgLbl.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        eMailPatternMsgLbl.setForeground(java.awt.Color.red);
 
         javax.swing.GroupLayout personalDataPanLayout = new javax.swing.GroupLayout(personalDataPan);
         personalDataPan.setLayout(personalDataPanLayout);
@@ -179,72 +239,76 @@ public class CreatePerson extends javax.swing.JFrame {
                     .addComponent(eMailTxt)
                     .addComponent(addressTxt)
                     .addComponent(eduLevelTxt)
-                    .addComponent(professionTxt)
+                    .addComponent(jLabel1)
+                    .addGroup(personalDataPanLayout.createSequentialGroup()
+                        .addGroup(personalDataPanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(idTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 203, Short.MAX_VALUE)
+                            .addGroup(personalDataPanLayout.createSequentialGroup()
+                                .addComponent(jLabel2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel25))
+                            .addGroup(personalDataPanLayout.createSequentialGroup()
+                                .addComponent(jLabel4)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel27, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(personalDataPanLayout.createSequentialGroup()
+                                .addComponent(jLabel6)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel29, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(givenNameTxt))
+                        .addGap(18, 18, 18)
+                        .addGroup(personalDataPanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(personalDataPanLayout.createSequentialGroup()
+                                .addComponent(jLabel3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel26, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(personalDataPanLayout.createSequentialGroup()
+                                .addComponent(jLabel5)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel28, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(birthDateTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)
+                            .addComponent(familyNameTxt)))
+                    .addGroup(personalDataPanLayout.createSequentialGroup()
+                        .addComponent(jLabel7)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel30, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(personalDataPanLayout.createSequentialGroup()
+                        .addComponent(jLabel11)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel34))
+                    .addGroup(personalDataPanLayout.createSequentialGroup()
+                        .addComponent(jLabel12)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel35, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(personalDataPanLayout.createSequentialGroup()
                         .addGroup(personalDataPanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(personalDataPanLayout.createSequentialGroup()
-                                .addComponent(jLabel11)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel34))
-                            .addGroup(personalDataPanLayout.createSequentialGroup()
-                                .addComponent(jLabel12)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel35, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel1)
+                                .addComponent(eMailPatternMsgLbl, javax.swing.GroupLayout.DEFAULT_SIZE, 308, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
                             .addGroup(personalDataPanLayout.createSequentialGroup()
                                 .addGroup(personalDataPanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(personalDataPanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addComponent(idTxt, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 203, Short.MAX_VALUE)
-                                        .addComponent(givenNameTxt, javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, personalDataPanLayout.createSequentialGroup()
-                                            .addComponent(jLabel2)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(jLabel25)))
-                                    .addGroup(personalDataPanLayout.createSequentialGroup()
-                                        .addComponent(jLabel4)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jLabel27, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(personalDataPanLayout.createSequentialGroup()
-                                        .addComponent(jLabel6)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jLabel29, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(18, 18, 18)
-                                .addGroup(personalDataPanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(personalDataPanLayout.createSequentialGroup()
-                                        .addComponent(jLabel3)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jLabel26, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(familyNameTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)
-                                    .addGroup(personalDataPanLayout.createSequentialGroup()
-                                        .addComponent(jLabel5)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jLabel28, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(birthDateTxt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                            .addGroup(personalDataPanLayout.createSequentialGroup()
-                                .addComponent(jLabel7)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel30, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(personalDataPanLayout.createSequentialGroup()
-                                .addGroup(personalDataPanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(sexCmb, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(personalDataPanLayout.createSequentialGroup()
                                         .addComponent(jLabel8)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jLabel31, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(sexCmb, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(18, 18, 18)
+                                        .addComponent(jLabel31, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(77, 77, 77)
                                 .addGroup(personalDataPanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(civilStateCmb, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(personalDataPanLayout.createSequentialGroup()
+                                        .addComponent(civilStateCmb, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(0, 0, Short.MAX_VALUE))
                                     .addGroup(personalDataPanLayout.createSequentialGroup()
                                         .addComponent(jLabel10)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jLabel32)))
-                                .addGap(34, 34, 34)
-                                .addGroup(personalDataPanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(childrenNumberSpn, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(jLabel32)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                        .addGroup(personalDataPanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(personalDataPanLayout.createSequentialGroup()
+                                .addComponent(jLabel9)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel33, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                                .addComponent(jLabel33))
+                            .addComponent(childrenNumberSpn, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(professionTxt))
                 .addContainerGap())
         );
         personalDataPanLayout.setVerticalGroup(
@@ -280,38 +344,36 @@ public class CreatePerson extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(addressTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(personalDataPanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(personalDataPanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7)
+                    .addComponent(jLabel30))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(eMailTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(eMailPatternMsgLbl)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(personalDataPanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(personalDataPanLayout.createSequentialGroup()
                         .addGroup(personalDataPanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel7)
-                            .addComponent(jLabel30))
+                            .addComponent(jLabel8)
+                            .addComponent(jLabel31)
+                            .addComponent(jLabel10)
+                            .addComponent(jLabel32))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(eMailTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(personalDataPanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(personalDataPanLayout.createSequentialGroup()
-                                .addGroup(personalDataPanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel8)
-                                    .addComponent(jLabel31))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(sexCmb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(personalDataPanLayout.createSequentialGroup()
-                                .addGroup(personalDataPanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel10)
-                                    .addComponent(jLabel32))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(civilStateCmb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(sexCmb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(personalDataPanLayout.createSequentialGroup()
                         .addGroup(personalDataPanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel9)
                             .addComponent(jLabel33))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(childrenNumberSpn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(personalDataPanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(childrenNumberSpn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(civilStateCmb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(personalDataPanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel11)
                     .addComponent(jLabel34))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(3, 3, 3)
                 .addComponent(professionTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(personalDataPanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -319,35 +381,60 @@ public class CreatePerson extends javax.swing.JFrame {
                     .addComponent(jLabel35))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(eduLevelTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(15, 15, 15))
         );
 
         laborDataPane.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        laborDataPane.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
 
+        jLabel13.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         jLabel13.setText("Datos laborales:");
 
+        jLabel14.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         jLabel14.setText("Cargo");
 
+        occupationTxt.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+
+        jLabel15.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         jLabel15.setText("Fecha de ingreso");
 
+        jLabel16.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         jLabel16.setText("Fecha de salida");
 
+        jLabel17.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         jLabel17.setText("Tipo de contrato");
 
-        contractTypeCmb.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Indefinido", "Término Fijo", "Prestación de servicio" }));
+        contractTypeCmb.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        contractTypeCmb.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "---", "Indefinido", "Término fijo", "Prestación de servicios" }));
         contractTypeCmb.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 contractTypeCmbActionPerformed(evt);
             }
         });
 
+        jLabel18.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         jLabel18.setText("EPS");
 
+        ePSTxt.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+
+        jLabel19.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         jLabel19.setText("ARL");
 
+        aRLTxt.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+
+        jLabel20.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         jLabel20.setText("Cesantías");
 
+        layoffsTxt.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+
+        jLabel21.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         jLabel21.setText("Pensión");
+
+        pensionTxt.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+
+        dateOfEntryTxt.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+
+        dateOfExitTxt.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
 
         jLabel36.setForeground(java.awt.Color.red);
         jLabel36.setText("*");
@@ -356,6 +443,7 @@ public class CreatePerson extends javax.swing.JFrame {
         jLabel37.setText("*");
 
         dODReqLbl.setForeground(java.awt.Color.red);
+        dODReqLbl.setText("*");
 
         jLabel38.setForeground(java.awt.Color.red);
         jLabel38.setText("*");
@@ -379,7 +467,6 @@ public class CreatePerson extends javax.swing.JFrame {
             .addGroup(laborDataPaneLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(laborDataPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(ocupationTxt)
                     .addComponent(contractTypeCmb, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(dateOfEntryTxt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(laborDataPaneLayout.createSequentialGroup()
@@ -400,37 +487,37 @@ public class CreatePerson extends javax.swing.JFrame {
                             .addGroup(laborDataPaneLayout.createSequentialGroup()
                                 .addComponent(jLabel17)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel38, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jLabel38, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 326, Short.MAX_VALUE))
+                    .addComponent(dateOfExitTxt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(laborDataPaneLayout.createSequentialGroup()
+                        .addGroup(laborDataPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(ePSTxt)
+                            .addComponent(layoffsTxt)
                             .addGroup(laborDataPaneLayout.createSequentialGroup()
                                 .addGroup(laborDataPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(ePSTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(laborDataPaneLayout.createSequentialGroup()
                                         .addComponent(jLabel18)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jLabel39, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(18, 18, 18)
-                                .addGroup(laborDataPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(laborDataPaneLayout.createSequentialGroup()
-                                        .addComponent(jLabel19)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jLabel40, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(aRLTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(laborDataPaneLayout.createSequentialGroup()
-                                .addGroup(laborDataPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel39, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(laborDataPaneLayout.createSequentialGroup()
                                         .addComponent(jLabel20)
                                         .addGap(18, 18, 18)
-                                        .addComponent(layoffsReqLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(layoffsTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(18, 18, 18)
-                                .addGroup(laborDataPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(laborDataPaneLayout.createSequentialGroup()
-                                        .addComponent(jLabel21)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jLabel41, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(pensionTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(0, 27, Short.MAX_VALUE))
-                    .addComponent(dateOfExitTxt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                        .addComponent(layoffsReqLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(18, 18, 18)
+                        .addGroup(laborDataPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(laborDataPaneLayout.createSequentialGroup()
+                                .addComponent(jLabel21)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel41, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(pensionTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(laborDataPaneLayout.createSequentialGroup()
+                                .addComponent(jLabel19)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel40, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(aRLTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(occupationTxt))
                 .addContainerGap())
         );
         laborDataPaneLayout.setVerticalGroup(
@@ -443,7 +530,7 @@ public class CreatePerson extends javax.swing.JFrame {
                     .addComponent(jLabel14)
                     .addComponent(jLabel36))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(ocupationTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(occupationTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(laborDataPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel15)
@@ -457,23 +544,23 @@ public class CreatePerson extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(dateOfExitTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(laborDataPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(laborDataPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel17)
+                    .addComponent(jLabel38))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(contractTypeCmb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(laborDataPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel18)
+                    .addComponent(jLabel19)
+                    .addComponent(jLabel39)
+                    .addComponent(jLabel40))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(laborDataPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ePSTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(aRLTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(laborDataPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(laborDataPaneLayout.createSequentialGroup()
-                        .addGroup(laborDataPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel17)
-                            .addComponent(jLabel38))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(contractTypeCmb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(laborDataPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel18)
-                            .addComponent(jLabel19)
-                            .addComponent(jLabel39)
-                            .addComponent(jLabel40))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(laborDataPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(ePSTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(aRLTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(laborDataPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel20)
@@ -481,18 +568,19 @@ public class CreatePerson extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(layoffsTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(laborDataPaneLayout.createSequentialGroup()
+                        .addGap(6, 6, 6)
                         .addGroup(laborDataPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel21)
-                            .addComponent(jLabel41))
+                            .addComponent(jLabel41)
+                            .addComponent(jLabel21))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(pensionTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(56, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jLabel22.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jLabel22.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         jLabel22.setText("Nuevo Empleado");
 
-        saveBtn.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        saveBtn.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         saveBtn.setText("Guardar");
         saveBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -500,7 +588,7 @@ public class CreatePerson extends javax.swing.JFrame {
             }
         });
 
-        cancelBtn.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        cancelBtn.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         cancelBtn.setText("Cancelar");
         cancelBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -508,9 +596,11 @@ public class CreatePerson extends javax.swing.JFrame {
             }
         });
 
+        jLabel23.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         jLabel23.setForeground(java.awt.Color.red);
         jLabel23.setText("*");
 
+        jLabel24.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         jLabel24.setText("Campo requerido");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -521,11 +611,13 @@ public class CreatePerson extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jLabel22)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(31, 31, 31)
+                        .addComponent(saveBtn)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(cancelBtn)
-                        .addGap(18, 18, 18)
-                        .addComponent(saveBtn))
+                        .addGap(139, 139, 139))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel23)
@@ -540,25 +632,23 @@ public class CreatePerson extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jLabel22)
-                                .addComponent(saveBtn))
-                            .addComponent(cancelBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(laborDataPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(56, 56, 56)
+                        .addComponent(jLabel22)
+                        .addGap(16, 16, 16)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel23)
-                            .addComponent(jLabel24))
-                        .addGap(18, 18, 18)
-                        .addComponent(personalDataPan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addGap(48, 48, 48))
+                            .addComponent(jLabel24)))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(cancelBtn)
+                        .addComponent(saveBtn)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(personalDataPan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(laborDataPane, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         pack();
@@ -569,18 +659,19 @@ public class CreatePerson extends javax.swing.JFrame {
     }//GEN-LAST:event_civilStateCmbActionPerformed
 
     private void saveBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveBtnActionPerformed
+        boolean filled;
         String givenName = givenNameTxt.getText();
         String familyName = familyNameTxt.getText();
-        int id = Integer.parseInt(idTxt.getText());
+        String idNumber = idTxt.getText();
         Date birthDate = birthDateTxt.getDate();
         String address = addressTxt.getText();
         String eMail = eMailTxt.getText();
         String sex = sexCmb.getSelectedItem().toString();
-        int childrenNumber = Integer.parseInt(childrenNumberSpn.getValue().toString());
+        String numberOfChildren = childrenNumberSpn.getValue().toString();
         String civilState = civilStateCmb.getSelectedItem().toString();
         String eduLevel = eduLevelTxt.getText();
         String profession = professionTxt.getText();
-        String ocupation = ocupationTxt.getText();
+        String occupation = occupationTxt.getText();
         Date dEnt = dateOfEntryTxt.getDate();
         Date dExit = dateOfExitTxt.getDate();
         String contract = contractTypeCmb.getSelectedItem().toString();
@@ -589,21 +680,32 @@ public class CreatePerson extends javax.swing.JFrame {
         String layoffs = layoffsTxt.getText();
         String pension = pensionTxt.getText();
         
-        //Depending on the contract type, the date of departure will be required or not required
+        //Depending on the contract type, the date of departure will be required or not
         if(contract.equals("Indefinido")) {
-            checkNewEmployee(aRL, familyName, id, birthDate, address, eMail, sex, childrenNumber, civilState, profession, eduLevel, pension, dEnt, aRL, ePS, layoffs, pension);
-        } else if(contract.equals("Término fijo")) {
-            checkNewEmployee(aRL, familyName, id, birthDate, address, eMail, sex, childrenNumber, civilState, profession, eduLevel, pension, dEnt, dExit, aRL, ePS, layoffs, pension);
-        } else if(contract.equals("Prestación de servicios")) {
-            checkNewEmployee(aRL, familyName, id, birthDate, address, eMail, sex, childrenNumber, civilState, profession, eduLevel, pension, dEnt, dEnt, aRL, ePS, pension);
+            filled = checkNewEmployee(givenName, familyName, idNumber, birthDate, address, eMail, sex, numberOfChildren, civilState, profession, eduLevel, occupation, dEnt, contract, aRL, ePS, layoffs, pension);
+            if(filled) {
+                int id = Integer.parseInt(idNumber);
+                int childrenNumber = Integer.parseInt(numberOfChildren);
+                Employee e = new Employee(givenName, familyName, id, birthDate, address, eMail, sex, childrenNumber, civilState, profession, eduLevel, occupation, dEnt, contract, aRL, ePS, layoffs, pension);
+            
+                System.out.println("Persona creada: "+e.getGivenName()+" "+e.getFamilyName());
+                System.out.println("Fecha de nacimiento: "+e.getBirthDate());
+                System.out.println("Fecha de ingreso: "+e.getDateOfEntry());
+                System.out.println("Fecha de salida: "+e.getDateOfDeparture());
+            }
+        } else {
+            filled = checkNewEmployee(givenName, familyName, idNumber, birthDate, address, eMail, sex, numberOfChildren, civilState, profession, eduLevel, occupation, dEnt, dExit, contract, aRL, ePS, layoffs, pension);
+            if(filled) {
+                int id = Integer.parseInt(idNumber);
+                int childrenNumber = Integer.parseInt(numberOfChildren);
+                Employee e = new Employee(givenName, familyName, id, birthDate, address, eMail, sex, childrenNumber, civilState, profession, eduLevel, occupation, dEnt, dExit, contract, aRL, ePS, layoffs, pension);
+            
+                System.out.println("Persona creada: "+e.getGivenName()+" "+e.getFamilyName());
+                System.out.println("Fecha de nacimiento: "+e.getBirthDate());
+                System.out.println("Fecha de ingreso: "+e.getDateOfEntry());
+                System.out.println("Fecha de salida: "+e.getDateOfDeparture());
+            }
         }
-        
-        Employee e = new Employee(givenName, familyName, id, birthDate, address, eMail, sex, childrenNumber, civilState, profession, eduLevel, ocupation, dEnt, dExit, contract, aRL, ePS, layoffs, pension);
-        
-        System.out.println("Persona creada: "+e.getGivenName()+" "+e.getFamilyName());
-        System.out.println("Fecha de nacimiento: "+e.getBirthDate());
-        System.out.println("Fecha de ingreso: "+e.getDateOfEntry());
-        System.out.println("Fecha de salida: "+e.getDateOfDeparture());
     }//GEN-LAST:event_saveBtnActionPerformed
 
     private void cancelBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelBtnActionPerformed
@@ -616,16 +718,18 @@ public class CreatePerson extends javax.swing.JFrame {
         System.out.println(contract);
         if(contract.equals("Indefinido")) {
             dODReqLbl.setText("");
-        }
-        if(contract.equals("Término Fijo") || contract.equals("Prestación de servicio")) {
+        } else {
             dODReqLbl.setText("*");
         }
-        if(contract.equals("Prestación de servicio")) {
-            layoffsReqLbl.setText("");
-        } else {
-            layoffsReqLbl.setText("*");
-        }
     }//GEN-LAST:event_contractTypeCmbActionPerformed
+
+    private void eMailTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eMailTxtActionPerformed
+        // TODO add your handling code here:
+        Matcher eMailVerifier = eMailRegEx.matcher(eMailTxt.getText());
+        if(eMailVerifier.find() == false) {
+            eMailPatternMsgLbl.setText("Debe introducir un formato válido de correo electrónico. Por ejemplo: usuario1@ejemplo.com");
+        }
+    }//GEN-LAST:event_eMailTxtActionPerformed
 
     /**
      * @param args the command line arguments
@@ -663,11 +767,34 @@ public class CreatePerson extends javax.swing.JFrame {
         });
     }
     
+    private boolean isANumber(String s) {
+        boolean num;
+        try{
+            Integer.parseInt(s);
+            num = true;
+        } catch(NumberFormatException e) {
+            num = false;
+        }
+        return num;
+    }
+    
+    private boolean isNoDate(Date d) {
+        boolean noDate;
+        try{
+            d.getTime();
+            noDate = false;
+        } catch(NullPointerException e) {
+            noDate = true;
+        }
+        
+        return noDate;
+    }
+    
     /**
-     * Checks if the form is complete, when contract type is fixed term
+     * Checks if the form is complete, when contract type IS NOT indefinite
      * @param name the name of the employee
      * @param familyName the family name of the employee
-     * @param id the national id card of the employee
+     * @param idNumber the national id card of the employee
      * @param birthDate the birth date of the employe
      * @param address the employee's home addres
      * @param eMail the employee's email addres
@@ -684,12 +811,112 @@ public class CreatePerson extends javax.swing.JFrame {
      * @param layoffs the layoffs fund to which the employee is affiliated
      * @param pension the pension fund administrator to which the employee is affiliated
      */
-    public void checkNewEmployee(String name, String familyName, int id, Date birthDate, String address, String eMail, String sex, int childrenNumber, String civilState, String profession, String eduLevel, String position, Date dOE, Date dOD, String aRL, String ePS, String layoffs, String pension) {
+    private boolean checkNewEmployee(String name, String familyName, String idNumber, Date birthDate, String address, String eMail, String sex, String childrenNumber, String civilState, String profession, String eduLevel, String position, Date dOE, Date dOD, String contractType, String aRL, String ePS, String layoffs, String pension) {
+        boolean verified = true;
+        String message = null;
+        Matcher eMailVerifier = eMailRegEx.matcher(eMailTxt.getText());
         
+        if(name.isEmpty()) {
+            givenNameTxt.grabFocus();
+            message = "Por favor, introduzca el nombre del empleado";
+            verified = false;
+        } else if(familyName.isEmpty()) {
+            familyNameTxt.grabFocus();
+            message = "Por favor, introduzca los apellidos del empleado";
+            verified = false;
+        } else if(idNumber.isEmpty()) {
+            idTxt.grabFocus();
+            message = "Por favor, introduzca el número de identificación del empleado";
+            verified = false;
+        } else if(isANumber(idNumber) == false) {
+            message = "Solo se pueden introducir números en el campo Identificación";
+            idTxt.grabFocus();
+            idTxt.selectAll();
+            verified = false;
+        } else if(isNoDate(birthDate)) {
+            birthDateTxt.grabFocus();
+            message = "Por favor, introduzca la fecha de nacimiento del empleado";
+            verified = false;
+        } else if(address.isEmpty()) {
+            addressTxt.grabFocus();
+            message = "Por favor, introduzca la dirección del empleado";
+            verified = false;
+        } else if(eMail.isEmpty()) {
+            eMailTxt.grabFocus();
+            message = "Por favor, introduzca la dirección de correo electrónico del empleado";
+            verified = false;
+        } else if(eMailVerifier.find() == false) {
+            eMailTxt.grabFocus();
+            message = "Por favor, ingrese una dirección de correo electrónico válida";
+            verified = false;
+        } else if(sex.equals("---")) {
+            sexCmb.grabFocus();
+            message = "Por favor, seleccione el sexo del empleado";
+            verified = false;
+        } else if(isANumber(childrenNumber) == false) {
+            childrenNumberSpn.grabFocus();
+            message = "Solo se pueden introducir números en el campo Número de hijos";
+            verified = false;
+        } else if(civilState.equals("---")) {
+            civilStateCmb.grabFocus();
+            message = "Por favor, seleccione el estado civil del empleado";
+            verified = false;
+        } else if(profession.isEmpty()) {
+            professionTxt.grabFocus();
+            message = "Por favor, introduzca el título del empleado";
+            verified = false;
+        } else if(eduLevel.isEmpty()) {
+            eduLevelTxt.grabFocus();
+            message = "Por favor, introduzca el nivel de formación del empleado";
+            verified = false;
+        } else if(position.isEmpty()) {
+            occupationTxt.grabFocus();
+            message = "Por favor, introduzca el cargo del empleado";
+            verified = false;
+        } else if(isNoDate(dOE)) {
+            dateOfEntryTxt.grabFocus();
+            message = "Por favor, introduzca la fecha de ingreso del empleado";
+            verified = false;
+        } else if(isNoDate(dOD)){
+            dateOfExitTxt.grabFocus();
+            message = "Por favor, introduzca la fecha de salida del empleado";
+            verified = false;
+        } else if(dOD.before(dOE)) {
+            message = "No puede especificar como fecha de salida una fecha antes de la fecha de entrada";
+            dateOfExitTxt.grabFocus();
+            verified = false;
+        } else if(contractType.equals("--")) {
+            contractTypeCmb.grabFocus();
+            message = "Por favor, seleccione el tipo de contrato por el cual el empleado está vinculado a esta empresa";
+            verified = false;
+        } else if(ePS.isEmpty()) {
+            ePSTxt.grabFocus();
+            message = "Por favor, introduzca la EPS a la que está afiliado el empleado";
+            verified = false;
+        } else if(aRL.isEmpty()) {
+            aRLTxt.grabFocus();
+            message = "Por favor, introduzca la ARL a la que está afiliado el empleado";
+            verified = false;
+        } else if(layoffs.isEmpty()) {
+            layoffsTxt.grabFocus();
+            message = "Por favor, introduzca el fondo de cesantías al que está afiliado el empleado";
+            verified = false;
+        } else if(pension.isEmpty()) {
+            pensionTxt.grabFocus();
+            message = "Por favor, introduzca el fondo de pensiones al que está afiliado el empleado";
+            verified = false;
+        }
+        
+        if(verified) {
+            message = "Datos enviados exitosamente";
+        }
+        
+        showMessage(message);
+        return verified;
     }
     
     /**
-     * Checks if the form is complete, when contract type IS infinite
+     * Checks if the form is complete, when contract type IS indefinite
      * @param name the name of the employee
      * @param familyName the family name of the employee
      * @param id the national id card of the employee
@@ -708,32 +935,104 @@ public class CreatePerson extends javax.swing.JFrame {
      * @param layoffs the layoffs fund to which the employee is affiliated
      * @param pension the pension fund administrator to which the employee is affiliated
      */
-    public void checkNewEmployee(String name, String familyName, int id, Date birthDate, String address, String eMail, String sex, int childrenNumber, String civilState, String profession, String eduLevel, String position, Date dOE, String aRL, String ePS, String layoffs, String pension) {
+    private boolean checkNewEmployee(String name, String familyName, String idNumber, Date birthDate, String address, String eMail, String sex, String childrenNumber, String civilState, String profession, String eduLevel, String position, Date dOE, String contractType, String aRL, String ePS, String layoffs, String pension) {
+        boolean verified = true;
+        String message = "";
+        Matcher eMailVerifier = eMailRegEx.matcher(eMailTxt.getText());
         
+        if(name.isEmpty()) {
+            givenNameTxt.grabFocus();
+            message = "Por favor, introduzca el nombre del empleado";
+            verified = false;
+        } else if(familyName.isEmpty()) {
+            familyNameTxt.grabFocus();
+            message = "Por favor, introduzca los apellidos del empleado";
+            verified = false;
+        } else if(idNumber.isEmpty()) {
+            idTxt.grabFocus();
+            message = "Por favor, introduzca el número de identificación del empleado";
+            verified = false;
+        } else if(isANumber(idNumber) == false) {
+            message = "Solo se pueden introducir números en el campo Identificación";
+            idTxt.grabFocus();
+            idTxt.selectAll();
+            verified = false;
+        } else if(isNoDate(birthDate)) {
+            birthDateTxt.grabFocus();
+            message = "Por favor, introduzca la fecha de nacimiento del empleado";
+            verified = false;
+        } else if(address.isEmpty()) {
+            addressTxt.grabFocus();
+            message = "Por favor, introduzca la dirección del empleado";
+            verified = false;
+        } else if(eMail.isEmpty()) {
+            eMailTxt.grabFocus();
+            message = "Por favor, introduzca la dirección de correo electrónico del empleado";
+            verified = false;
+        } else if(eMailVerifier.find() == false) {
+            eMailTxt.grabFocus();
+            message = "Por favor, ingrese una dirección de correo electrónico válida";
+            verified = false;
+        } else if(sex.equals("---")) {
+            sexCmb.grabFocus();
+            message = "Por favor, seleccione el sexo del empleado";
+            verified = false;
+        } else if(isANumber(childrenNumber) == false) {
+            childrenNumberSpn.grabFocus();
+            message = "Solo se pueden introducir números en el campo Número de hijos";
+            verified = false;
+        } else if(civilState.equals("---")) {
+            civilStateCmb.grabFocus();
+            message = "Por favor, seleccione el estado civil del empleado";
+            verified = false;
+        } else if(profession.isEmpty()) {
+            professionTxt.grabFocus();
+            message = "Por favor, introduzca el título del empleado";
+            verified = false;
+        } else if(eduLevel.isEmpty()) {
+            eduLevelTxt.grabFocus();
+            message = "Por favor, introduzca el nivel de formación del empleado";
+            verified = false;
+        } else if(position.isEmpty()) {
+            occupationTxt.grabFocus();
+            message = "Por favor, introduzca el cargo del empleado";
+            verified = false;
+        } else if(isNoDate(dOE)) {
+            dateOfEntryTxt.grabFocus();
+            message = "Por favor, introduzca la fecha de ingreso del empleado";
+            verified = false;
+        } else if(contractType.equals("--")) {
+            contractTypeCmb.grabFocus();
+            message = "Por favor, seleccione el tipo de contrato por el cual el empleado está vinculado a esta empresa";
+            verified = false;
+        } else if(aRL.isEmpty()) {
+            aRLTxt.grabFocus();
+            message = "Por favor, introduzca la ARL a la que está afiliado el empleado";
+            verified = false;
+        } else if(ePS.isEmpty()) {
+            ePSTxt.grabFocus();
+            message = "Por favor, introduzca la EPS a la que está afiliado el empleado";
+            verified = false;
+        } else if(layoffs.isEmpty()) {
+            layoffsTxt.grabFocus();
+            message = "Por favor, introduzca el fondo de cesantías al que está afiliado el empleado";
+            verified = false;
+        } else if(pension.isEmpty()) {
+            pensionTxt.grabFocus();
+            message = "Por favor, introduzca el fondo de pensiones al que está afiliado el empleado";
+            verified = false;
+        }
+        
+        if(verified) {
+            message = "Datos enviados exitosamente";
+        }
+        
+        showMessage(message);
+        return verified;
     }
     
-    /**
-     * Checks if the form is complete, when contract type is Contract of service
-     * @param name the name of the employee
-     * @param familyName the family name of the employee
-     * @param id the national id card of the employee
-     * @param birthDate the birth date of the employe
-     * @param address the employee's home addres
-     * @param eMail the employee's email addres
-     * @param sex the sex of the employee
-     * @param childrenNumber the employee's number of children
-     * @param civilState the civil state of the employee
-     * @param profession the profession of the employee
-     * @param eduLevel the education level of the employee
-     * @param position the position of the employee in this company
-     * @param dOE the date of entry in this company
-     * @param dOD the date of departure of this company
-     * @param aRL the Occupational Risk Manager (ARL by its Spanish acronym) to which the employee is affiliated
-     * @param ePS the Health Promoter Entity (EPS by its Spanish acronym) to which the employee is affiliated
-     * @param pension the pension fund administrator to which the employee is affiliated
-     */
-    public void checkNewEmployee(String name, String familyName, int id, Date birthDate, String address, String eMail, String sex, int childrenNumber, String civilState, String profession, String eduLevel, String position, Date dOE, Date dOD, String aRL, String ePS, String pension) {
-        
+    private void showMessage(String message) {
+        JOptionPane.showMessageDialog(this, message);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -747,6 +1046,7 @@ public class CreatePerson extends javax.swing.JFrame {
     private javax.swing.JLabel dODReqLbl;
     private com.toedter.calendar.JDateChooser dateOfEntryTxt;
     private com.toedter.calendar.JDateChooser dateOfExitTxt;
+    private javax.swing.JLabel eMailPatternMsgLbl;
     private javax.swing.JTextField eMailTxt;
     private javax.swing.JTextField ePSTxt;
     private javax.swing.JTextField eduLevelTxt;
@@ -797,7 +1097,7 @@ public class CreatePerson extends javax.swing.JFrame {
     private javax.swing.JPanel laborDataPane;
     private javax.swing.JLabel layoffsReqLbl;
     private javax.swing.JTextField layoffsTxt;
-    private javax.swing.JTextField ocupationTxt;
+    private javax.swing.JTextField occupationTxt;
     private javax.swing.JTextField pensionTxt;
     private javax.swing.JPanel personalDataPan;
     private javax.swing.JTextField professionTxt;

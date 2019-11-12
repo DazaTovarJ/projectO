@@ -5,6 +5,7 @@
  */
 package person;
 
+import java.text.DateFormat;
 import java.util.Date;
 
 /**
@@ -62,8 +63,8 @@ public class Person {
         this.idNumber = idNumber;
     }
 
-    public Date getBirthDate() {
-        return birthDate;
+    public String getBirthDate() {
+        return DateFormat.getDateInstance().format(birthDate);
     }
 
     public void setBirthDate(Date birthDate) {

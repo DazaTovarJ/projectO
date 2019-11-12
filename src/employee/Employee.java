@@ -5,6 +5,7 @@
  */
 package employee;
 
+import java.text.DateFormat;
 import java.util.Date;
 import person.Person;
 
@@ -35,6 +36,17 @@ public class Employee extends Person {
         this.pension = pension;
     }
 
+    public Employee(String givenName, String familyName, int idNumber, Date birthDate, String address, String eMail, String sex, int childrensNumber, String civilState, String profession, String educationLevel, String position, Date dateOfEntry, String contractType, String aRL, String ePS, String layoffs, String pension) {
+        super(givenName, familyName, idNumber, birthDate, address, eMail, sex, childrensNumber, civilState, profession, educationLevel);
+        this.position = position;
+        this.dateOfEntry = dateOfEntry;
+        this.contractType = contractType;
+        this.aRL = aRL;
+        this.ePS = ePS;
+        this.layoffs = layoffs;
+        this.pension = pension;
+    }
+
     public String getPosition() {
         return position;
     }
@@ -43,16 +55,20 @@ public class Employee extends Person {
         this.position = position;
     }
 
-    public Date getDateOfEntry() {
-        return dateOfEntry;
+    public String getDateOfEntry() {
+        return DateFormat.getDateInstance().format(dateOfEntry);
     }
 
     public void setDateOfEntry(Date dateOfEntry) {
         this.dateOfEntry = dateOfEntry;
     }
 
-    public Date getDateOfDeparture() {
-        return dateOfDeparture;
+    public String getDateOfDeparture() {
+        if(contractType.equals("Indefinido")) {
+            return "El empleado tiene un contrato a término indefinido.";
+        } else {
+            return DateFormat.getDateInstance().format(dateOfDeparture);
+        }
     }
 
     public void setDateOfDeparture(Date dateOfDeparture) {
