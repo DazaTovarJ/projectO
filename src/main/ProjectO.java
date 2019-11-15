@@ -5,7 +5,7 @@
  */
 package main;
 
-import employee.Employee;
+import person.Person;
 //import java.util.Calendar;
 //import java.util.Date;
 
@@ -15,7 +15,7 @@ import employee.Employee;
  */
 public class ProjectO {
     
-    static Employee e;
+    static Person[] persons;
     /**
      * @param args the command line arguments
      */
